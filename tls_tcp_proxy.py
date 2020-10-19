@@ -149,7 +149,7 @@ class CertificateAuthority(object):
             cert.gmtime_adj_notAfter(31536000)
             cert.set_issuer(self.cert.get_subject())
             cert.set_pubkey(req.get_pubkey())
-            cert.sign(self.key, 'sha1')
+            cert.sign(self.key, 'sha256')
 
             with open(cnp, 'wb+') as f:
                 f.write(dump_privatekey(FILETYPE_PEM, key))
